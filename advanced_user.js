@@ -141,7 +141,11 @@ function changeUserRole() {
  */
 var messages;
 function getText(message, advancedUser) {
-	var lang = new RegExp('[^\]+\\((.*?)\\)').exec($("header ul:first a:first").text())[1];
-	var userRole = advancedUser == "0" ? "-standard" : "-avance";
-	return messages[lang][message + userRole];
+/** Correction du code issu d'une grande incompétence du développeur :
+        var lang = new RegExp('[^\]+\\((.*?)\\)').exec($("header ul:first a:first").text())[1];
+        var userRole = advancedUser == "0" ? "-standard" : "-avance";
+        return messages[lang][message + userRole]; */
+        var lang=$("html").attr("lang");
+        var userRole = advancedUser == "0" ? "-standard" : "-avance";
+        return messages[lang]?messages[lang][message + userRole]:messages["en"][message + userRole];
 }
