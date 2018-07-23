@@ -21,7 +21,7 @@ if(!isset($USER->advancedUser)) {
 }
 
 // Si l'utilisateur veut changer de rôle
-if(isset($_GET["change"])) {
+if($USER->advancedUser != -1 && isset($_GET["change"])) {
 	$roles = getRoles();
 	if($USER->advancedUser == 0) {
 		// On assigne le rôle advancedteacher
