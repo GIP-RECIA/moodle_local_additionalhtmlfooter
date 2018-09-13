@@ -11,8 +11,8 @@ require_once($CFG->dirroot . '/lib/moodlelib.php');
 if(!isset($USER->advancedUser)) {
 	$USER->advancedUser = -1;
 	$roles = getRoles();
-	if(user_has_role_assignment($USER->id, $roles["teacher"]) || user_has_role_assignment($USER->id, $roles["editingteacher"])) { 
-		if(user_has_role_assignment($USER->id, $roles["advancedteacher"])) {
+	if((isset($roles["teacher"]) && user_has_role_assignment($USER->id, $roles["teacher"])) || (isset($roles["editingteacher"]) && user_has_role_assignment($USER->id, $roles["editingteacher"]))) {
+		if(isset($roles["advancedteacher"]) && user_has_role_assignment($USER->id, $roles["advancedteacher"])) {
 			$USER->advancedUser = 1;
 		} else {		
 			$USER->advancedUser = 0;
