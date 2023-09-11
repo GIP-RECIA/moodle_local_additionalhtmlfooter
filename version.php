@@ -17,7 +17,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_additionalhtmlfooter';
-$plugin->version = '2018090300';
-//$plugin->release = '2.8 (Build: 2015012900)';
-$plugin->release = '3.1 (Build: 20160523)';
+$plugin->version = '2023091100';
+$plugin->release = '4.1 (Build: 2023091100)';
 $plugin->maturity = MATURITY_STABLE;
